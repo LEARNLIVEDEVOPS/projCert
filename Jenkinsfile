@@ -26,19 +26,19 @@ pipeline {
         }
 stage ('Push Image') {
      steps  {
-          echo “Push Image on DockerHub”
+          echo "Push Image on DockerHub"
           script {
                     docker.withRegistry('https://registry.hub.docker.com', 'ramkitcs') {
-                    dockerImg.push(“ramkitcs/phpapp”)
+                    dockerImg.push("ramkitcs/phpapp")
 }
 }
 }
 }
 stage ('Deploy') {
      steps {
-         echo “Run containers”
+         echo "Run containers"
          script {
-          sh “sudo docker run -itd -p 8084:80 ramkitcs/phpapp”
+          sh "sudo docker run -itd -p 8084:80 ramkitcs/phpapp"
                      }
                   }
   }           
