@@ -1,11 +1,11 @@
 #!/bin/groovy
 def dockerImg
 pipeline {
-        environment {
-         registry = "ramkitcs/phpapp"
-          RegistryCredential = 'ramkitcs'
-           dockerImage = ' '
-}
+        // environment {
+         //registry = "ramkitcs/phpapp"
+          //RegistryCredential = 'ramkitcs'
+           //dockerImage = ' '
+//}
     agent any
    stages {
          stage ('Clone Repo') {
