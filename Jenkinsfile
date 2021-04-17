@@ -24,23 +24,22 @@ pipeline {
                 }
             }
         }
-stage (‘Push Image’) {
-     Steps  {
-          Echo “Push Image on DockerHub”
-          Script {
+stage ('Push Image') {
+     steps  {
+          echo “Push Image on DockerHub”
+          script {
                     docker.withRegistry('https://registry.hub.docker.com', 'ramkitcs') {
                     dockerImg.push(“$(env.BUILD_NUMBER)”)
-                     dockerImg.push(“latest”)
-
+                    dockerImg.push(“latest”)
 }
 }
 }
 }
-stage (‘Deploy’) {
-     Steps {
+stage ('Deploy') {
+     steps {
          echo “Run containers”
-         Script {
-          Sh “sudo docker run -itd container-$BUILD_NUMBER -p 8084:80 ramkitcs/phpapp:$(env.BUILD_NUMBER)”
+         script {
+          sh “sudo docker run -itd container-$BUILD_NUMBER -p 8084:80 ramkitcs/phpapp:$(env.BUILD_NUMBER)”
                      }
                   }
   }           
