@@ -39,7 +39,7 @@ stage ('Deploy') {
      steps {
          echo "Run containers"
          script {
-          sh "sudo docker run -itd -p 8084:80 ramkitcs/phpapp"
+          sh "sudo docker run -d -p 8084:80 ramkitcs/phpapp"
                      }
                   }
   }           
