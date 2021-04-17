@@ -17,12 +17,13 @@ pipeline {
          stage ('Build Image') {
             steps {
                 echo "Build docker image"
-                //script {
+                 script {
                     /* This builds the actual image; synonymous to
                     * docker build on the command line */
                   //  sh "sudo docker build -t ramkitcs/phpapp ."
-                        //dockerImg = docker.build("ramkitcs/phpapp")
-                //}
+                docker.build("ramkitcs/phpapp:${env.BUILD_NUMBER}")
+                         //dockerImg = docker.build("ramkitcs/phpapp")
+                }
             }
         }
 stage ('Push Image') {
