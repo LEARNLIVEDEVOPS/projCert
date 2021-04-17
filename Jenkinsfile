@@ -20,7 +20,8 @@ pipeline {
                 script {
                     /* This builds the actual image; synonymous to
                     * docker build on the command line */
-                    dockerImg = docker.build("ramkitcs/phpapp")
+                    sh "sudo docker build -t ramkitcs/phpapp ."
+                        //dockerImg = docker.build("ramkitcs/phpapp")
                 }
             }
         }
