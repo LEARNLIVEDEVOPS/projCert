@@ -17,22 +17,22 @@ pipeline {
          stage ('Build Image') {
             steps {
                 echo "Build docker image"
-                script {
+                //script {
                     /* This builds the actual image; synonymous to
                     * docker build on the command line */
-                    sh "sudo docker build -t ramkitcs/phpapp ."
+                  //  sh "sudo docker build -t ramkitcs/phpapp ."
                         //dockerImg = docker.build("ramkitcs/phpapp")
-                }
+                //}
             }
         }
 stage ('Push Image') {
      steps  {
           echo "Push Image on DockerHub"
-          script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'ramkitcs') {
-                    dockerImg.push("ramkitcs/phpapp")
-}
-}
+          //script {
+            //        docker.withRegistry('https://registry.hub.docker.com', 'ramkitcs') {
+              //      dockerImg.push("ramkitcs/phpapp")
+//}
+//}
 }
 }
 stage ('Deploy') {
