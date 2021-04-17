@@ -29,8 +29,7 @@ stage ('Push Image') {
           echo “Push Image on DockerHub”
           script {
                     docker.withRegistry('https://registry.hub.docker.com', 'ramkitcs') {
-                    dockerImg.push(“$(env.BUILD_NUMBER)”)
-                    dockerImg.push(“latest”)
+                    dockerImg.push(“ramkitcs/phpapp”)
 }
 }
 }
@@ -39,7 +38,7 @@ stage ('Deploy') {
      steps {
          echo “Run containers”
          script {
-          sh “sudo docker run -itd container-$BUILD_NUMBER -p 8084:80 ramkitcs/phpapp:$(env.BUILD_NUMBER)”
+          sh “sudo docker run -itd -p 8084:80 ramkitcs/phpapp”
                      }
                   }
   }           
