@@ -10,33 +10,15 @@ pipeline {
                    }
                               }
 
-    stage("build") {
-
-      steps {
-
-        sh """
-
-          docker build -t ramkitcs/phpapp .
-
-        """
-
+ 
+ stage('Building image') {
+      steps{
+        script {
+          dockerImage = docker.build registry
+        }
       }
-
     }
 
-    stage("run") {
-
-      steps {
-
-        sh """
-
-          docker run -d -p 8081:80 ramkitcs/phpapp
-
-        """
-
-      }
-
-    }
 
   }
 }
