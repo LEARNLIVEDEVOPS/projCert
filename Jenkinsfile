@@ -29,9 +29,8 @@ pipeline {
      steps  {
           echo "Push Image on DockerHub"
           script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-                    docker push ramkitcs/phpapp-3
-}
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub')
+                    sh "docker push ramkitcs/phpapp-3"
 }
 }
 }
