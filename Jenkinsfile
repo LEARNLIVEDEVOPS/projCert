@@ -27,7 +27,7 @@ pipeline {
     
    stage ('Push Image') {
      steps  {
-          echo “Push Image on DockerHub”
+          echo "Push Image on DockerHub"
           script {
                     docker.withRegistry('https://registry.hub.docker.com', 'ramkitcs') {
                     dockerImg.push("ramkitcs/phpapp-3")
@@ -42,7 +42,7 @@ pipeline {
     
     stage ('Deploy') {
      steps {
-         echo “Run containers”
+         echo "Run containers"
          script {
           sh "sudo docker run -itd -p 8081:80 ramkitcs/phpapp-3"
                      }
