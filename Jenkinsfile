@@ -48,7 +48,7 @@ pipeline {
      steps {
          echo "Run containers"
          script {
-          sh "sudo docker run -d -p 8081:80 ramkitcs/phpapp-4"
+          sh "docker run -d -p 8081:80 ramkitcs/phpapp-4"
                      }
                   }
   }          
