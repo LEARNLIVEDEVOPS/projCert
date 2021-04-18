@@ -30,9 +30,7 @@ pipeline {
           echo "Push Image on DockerHub"
           script {
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-                    dockerImg.push("ramkitcs/phpapp-3")
-                     dockerImg.push("latest")
-
+                    docker push ramkitcs/phpapp-3
 }
 }
 }
