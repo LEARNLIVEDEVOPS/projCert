@@ -3,6 +3,12 @@ pipeline {
   agent any
 
   stages {
+    stage ('Clone Repo') {
+            steps {
+                /* Clone git Repository */
+                checkout scm
+                   }
+                              }
 
     stage("build") {
 
@@ -10,7 +16,7 @@ pipeline {
 
         sh """
 
-          docker build -t hello_there .
+          docker build -t ramkitcs/phpapp .
 
         """
 
@@ -24,7 +30,7 @@ pipeline {
 
         sh """
 
-          docker run --rm hello_there
+          docker run -d -p 8081:80 ramkitcs/phpapp
 
         """
 
