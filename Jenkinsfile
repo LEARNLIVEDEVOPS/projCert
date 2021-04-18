@@ -18,8 +18,9 @@ pipeline {
      stage('Building image') {
         steps{
           script {
-              sh "docker build -t ramktcs/phpapp-3 ."
-        }
+              //sh "docker build -t ramktcs/phpapp-3 ."
+        app = docker.build("ramkitcs/phpapp-4")
+          }
       }
     }
 
